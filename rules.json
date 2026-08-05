@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://gh-proxy.com/\\0"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://github\\.com/[^/]+/[^/]+/releases/download/.*",
+      "resourceTypes": ["main_frame", "sub_frame"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://gh-proxy.com/\\0"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://github\\.com/[^/]+/[^/]+/archive/.*",
+      "resourceTypes": ["main_frame", "sub_frame"]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://gh-proxy.com/\\0"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://raw\\.githubusercontent\\.com/.*",
+      "resourceTypes": ["main_frame", "sub_frame"]
+    }
+  },
+  {
+    "id": 4,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://gh-proxy.com/\\0"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://codeload\\.github\\.com/.*",
+      "resourceTypes": ["main_frame", "sub_frame"]
+    }
+  },
+  {
+    "id": 5,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://gh-proxy.com/\\0"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://release-assets\\.githubusercontent\\.com/.*",
+      "resourceTypes": ["main_frame", "sub_frame"]
+    }
+  },
+  {
+    "id": 6,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://gh-proxy.com/\\0"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://objects\\.githubusercontent\\.com/.*",
+      "resourceTypes": ["main_frame", "sub_frame"]
+    }
+  }
+]

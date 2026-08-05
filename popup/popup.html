@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 240px;
+      padding: 16px;
+      font-family: "Microsoft YaHei", sans-serif;
+      background: #1e1e2e;
+      color: #cdd6f4;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .header .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #a6e3a1;
+      transition: background 0.2s;
+    }
+    .header .dot.off { background: #f38ba8; }
+    .header h1 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #cdd6f4;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .label {
+      font-size: 13px;
+      color: #a6adc8;
+    }
+    .toggle {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      background: #585b70;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .toggle.on { background: #a6e3a1; }
+    .toggle::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      background: #1e1e2e;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+    .toggle.on::after { transform: translateX(20px); }
+    .stats {
+      font-size: 11px;
+      color: #6c7086;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="dot" id="dot"></div>
+    <h1>GitHub 代理</h1>
+  </div>
+  <div class="row">
+    <span class="label">启用代理替换</span>
+    <div class="toggle" id="toggle"></div>
+  </div>
+  <div class="stats">
+    匹配：releases / archive / raw / codeload
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
