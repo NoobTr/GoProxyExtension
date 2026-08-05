@@ -3,6 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-green)](manifest.json)
 
+> 如果这个项目帮到了你，请点个 Star ⭐ 支持一下！
+
 一个 Edge/Chrome 浏览器扩展，自动将 GitHub 文件下载链接替换为代理地址，解决国内下载缓慢的问题。
 
 **支持的域名：** `github.com` · `raw.githubusercontent.com` · `codeload.github.com` · `release-assets.githubusercontent.com` · `objects.githubusercontent.com`
@@ -114,3 +116,7 @@ IDM 的浏览器扩展会在点击时读取 `<a>` 标签的 `href`。本扩展�
 ## License
 
 MIT
+
+---
+
+如果这个项目对你有帮助，欢迎点个 ⭐ Star，让更多人看到！
