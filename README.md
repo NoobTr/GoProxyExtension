@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-green)](manifest.json)
+[![GitHub Stars](https://img.shields.io/github/stars/NoobTr/GoProxyExtension?style=social)](https://github.com/NoobTr/GoProxyExtension)
 
 > 如果这个项目帮到了你，请点个 Star ⭐ 支持一下！
 
@@ -26,7 +27,7 @@
 
 点击浏览器工具栏的扩展图标，可以随时开关代理功能：
 
-- **开启**（默认）：所有 GitHub 下载链接自动走 `gh-proxy.com`
+- **开启**（默认）：所有 GitHub 下载链接自动走 `v6.gh-proxy.com`
 - **关闭**：恢复原始链接
 
 ## 工作原理
@@ -91,19 +92,15 @@ magick icons/icon.svg -resize 128x128 icons/icon128.png
 
 ## 修改代理地址
 
-默认使用 `gh-proxy.com`。如果要换成其他代理，修改以下文件中的字符串：
+默认使用 `v6.gh-proxy.com`。如果要换成其他代理，修改以下文件中的字符串：
 
 - `content.js`：`toProxyUrl` 函数
 - `rules.json`：每条规则的 `regexSubstitution`
 - `background.js`：无需修改
 
-全局搜索替换 `gh-proxy.com` 即可。
+全局搜索替换 `v6.gh-proxy.com` 即可。
 
 ## FAQ
-
-**为什么不用 Chrome Web Store 上架？**
-
-可以同时上架。Edge Add-ons 和 Chrome Web Store 的审核流程不同，建议先上 Edge（审核较快），再上 Chrome。
 
 **IDM 仍然抓到了原始链接？**
 
@@ -112,6 +109,14 @@ IDM 的浏览器扩展会在点击时读取 `<a>` 标签的 `href`。本扩展�
 **会影响正常浏览 GitHub 吗？**
 
 不会。只拦截 `main_frame` / `sub_frame` 类型的请求（即点击链接触发的导航），不影响页面内加载的图片、脚本、样式。
+
+## 捐赠
+
+如果你觉得这个项目有用的话，可以请开发者喝杯咖啡！
+
+| 支付宝 | 微信 |
+|--------|------|
+| <!-- 请替换为你的支付宝收款码 --> ![支付宝收款码](assets/alipay.png) | <!-- 请替换为你的微信收款码 --> ![微信收款码](assets/wechat.png) |
 
 ## License
 

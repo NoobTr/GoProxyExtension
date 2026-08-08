@@ -5,7 +5,7 @@
     "action": {
       "type": "redirect",
       "redirect": {
-        "regexSubstitution": "https://gh-proxy.com/\\0"
+        "regexSubstitution": "https://v6.gh-proxy.com/\\0"
       }
     },
     "condition": {
@@ -19,7 +19,7 @@
     "action": {
       "type": "redirect",
       "redirect": {
-        "regexSubstitution": "https://gh-proxy.com/\\0"
+        "regexSubstitution": "https://v6.gh-proxy.com/\\0"
       }
     },
     "condition": {
@@ -33,7 +33,7 @@
     "action": {
       "type": "redirect",
       "redirect": {
-        "regexSubstitution": "https://gh-proxy.com/\\0"
+        "regexSubstitution": "https://v6.gh-proxy.com/\\0"
       }
     },
     "condition": {
@@ -47,7 +47,7 @@
     "action": {
       "type": "redirect",
       "redirect": {
-        "regexSubstitution": "https://gh-proxy.com/\\0"
+        "regexSubstitution": "https://v6.gh-proxy.com/\\0"
       }
     },
     "condition": {
@@ -61,7 +61,7 @@
     "action": {
       "type": "redirect",
       "redirect": {
-        "regexSubstitution": "https://gh-proxy.com/\\0"
+        "regexSubstitution": "https://v6.gh-proxy.com/\\0"
       }
     },
     "condition": {
@@ -75,7 +75,7 @@
     "action": {
       "type": "redirect",
       "redirect": {
-        "regexSubstitution": "https://gh-proxy.com/\\0"
+        "regexSubstitution": "https://v6.gh-proxy.com/\\0"
       }
     },
     "condition": {

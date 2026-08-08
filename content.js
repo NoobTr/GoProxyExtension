@@ -18,12 +18,12 @@ const PROXY_RULES = [
 const isGithubDownloadUrl = (url) => {
   if (!url) return false;
   let u;
-  try { u = new URL(url); } catch { return false; }
-  if (u.hostname === "gh-proxy.com") return false;
+  try { u = new URL(url, location.origin); } catch { return false; }
+  if (u.hostname === "v6.gh-proxy.com") return false;
   return PROXY_RULES.some((r) => u.hostname === r.host && r.pathPattern.test(u.pathname));
 };
 
-const toProxyUrl = (url) => `https://gh-proxy.com/${url}`;
+const toProxyUrl = (url) => `https://v6.gh-proxy.com/${url}`;
 
 // ------------------------------------------------------------------
 // 第一层：捕获阶段 click / auxclick，在 IDM 之前拦截
