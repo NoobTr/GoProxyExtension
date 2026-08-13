@@ -27,8 +27,12 @@
 
 点击浏览器工具栏的扩展图标，可以随时开关代理功能：
 
-- **开启**（默认）：所有 GitHub 下载链接自动走 `v6.gh-proxy.com`
+- **开启**（默认）：所有 GitHub 下载链接自动走 `v6.gh-proxy.org`
 - **关闭**：恢复原始链接
+
+### 自定义代理地址
+
+点击扩展图标，在弹出面板底部的输入框中填入你的代理地址（需以 `http://` 或 `https://` 开头），点击「保存」即可。所有拦截层（click / MutationObserver / DNR）会立即切换到新代理。
 
 ## 工作原理
 
@@ -62,12 +66,11 @@ flowchart TD
 
 ```
 ├── manifest.json          # 扩展清单 (MV3)
-├── rules.json             # DNR 静态规则（网络层拦截）
-├── background.js          # Service Worker（开关控制）
+├── background.js          # Service Worker（动态 DNR 规则 + 自定义代理）
 ├── content.js             # 内容脚本（DOM 层拦截 + click 捕获）
 ├── popup/
 │   ├── popup.html         # 弹出面板 UI
-│   └── popup.js           # 开关逻辑
+│   └── popup.js           # 开关 + 自定义代理逻辑
 ├── icons/
 │   └── icon.svg           # 图标源文件（可转 PNG）
 ├── LICENSE
@@ -92,13 +95,14 @@ magick icons/icon.svg -resize 128x128 icons/icon128.png
 
 ## 修改代理地址
 
-默认使用 `v6.gh-proxy.com`。如果要换成其他代理，修改以下文件中的字符串：
+默认使用 `v6.gh-proxy.org`。推荐通过扩展弹出面板直接修改（见上文「自定义代理地址」），无需改代码。
 
-- `content.js`：`toProxyUrl` 函数
-- `rules.json`：每条规则的 `regexSubstitution`
-- `background.js`：无需修改
+如果要在代码里改默认值，需要同步修改以下位置：
 
-全局搜索替换 `v6.gh-proxy.com` 即可。
+- `content.js`：`DEFAULT_PROXY` 常量
+- `background.js`：`DEFAULT_PROXY` 常量
+
+全局搜索替换 `v6.gh-proxy.org` 即可。
 
 ## FAQ
 

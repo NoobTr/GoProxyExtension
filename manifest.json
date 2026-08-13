@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "GitHub Proxy Redirect",
-  "version": "1.3.1",
-  "description": "将所有 GitHub 下载链接通过网络层拦截替换为 v6.gh-proxy.com 代理地址",
+  "version": "1.4.0",
+  "description": "将所有 GitHub 下载链接通过网络层拦截替换为 v6.gh-proxy.org 代理地址",
   "permissions": ["storage", "declarativeNetRequest"],
   "host_permissions": [
     "*://github.com/*",
@@ -11,15 +11,6 @@
     "*://release-assets.githubusercontent.com/*",
     "*://objects.githubusercontent.com/*"
   ],
-  "declarative_net_request": {
-    "rule_resources": [
-      {
-        "id": "github_proxy_rules",
-        "enabled": true,
-        "path": "rules.json"
-      }
-    ]
-  },
   "background": {
     "service_worker": "background.js"
   },

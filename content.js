@@ -12,6 +12,31 @@ const PROXY_RULES = [
 ];
 
 // ------------------------------------------------------------------
+// 代理地址（从 storage 读取，支持自定义）
+// ------------------------------------------------------------------
+
+const DEFAULT_PROXY = "https://v6.gh-proxy.org";
+let proxyBase = DEFAULT_PROXY;       // 如 https://v6.gh-proxy.org
+let proxyHostname = "v6.gh-proxy.org";
+
+const setProxy = (raw) => {
+  try {
+    const u = new URL(String(raw).trim());
+    if (u.protocol !== "https:" && u.protocol !== "http:") throw new Error();
+    proxyBase = u.origin;
+    proxyHostname = u.hostname;
+  } catch {
+    proxyBase = DEFAULT_PROXY;
+    proxyHostname = "v6.gh-proxy.org";
+  }
+};
+
+chrome.storage.local.get("proxyUrl").then(({ proxyUrl }) => setProxy(proxyUrl || DEFAULT_PROXY));
+chrome.storage.onChanged.addListener((c) => {
+  if ("proxyUrl" in c) setProxy(c.proxyUrl.newValue || DEFAULT_PROXY);
+});
+
+// ------------------------------------------------------------------
 // 纯函数
 // ------------------------------------------------------------------
 
@@ -19,13 +44,13 @@ const isGithubDownloadUrl = (url) => {
   if (!url) return false;
   let u;
   try { u = new URL(url, location.origin); } catch { return false; }
-  if (u.hostname === "v6.gh-proxy.com") return false;
+  if (u.hostname === proxyHostname) return false; // 已经是代理地址，避免二次代理
   return PROXY_RULES.some((r) => u.hostname === r.host && r.pathPattern.test(u.pathname));
 };
 
 const toProxyUrl = (url) => {
   const absolute = new URL(url, location.origin).href;
-  return `https://v6.gh-proxy.com/${absolute}`;
+  return `${proxyBase}/${absolute}`;
 };
 
 // ------------------------------------------------------------------

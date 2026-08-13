@@ -5,7 +5,7 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      width: 240px;
+      width: 260px;
       padding: 16px;
       font-family: "Microsoft YaHei", sans-serif;
       background: #1e1e2e;
@@ -62,10 +62,42 @@
       transition: transform 0.2s;
     }
     .toggle.on::after { transform: translateX(20px); }
+    .proxy-row {
+      display: flex;
+      gap: 6px;
+      margin: 12px 0 6px;
+    }
+    .proxy-input {
+      flex: 1;
+      padding: 6px 8px;
+      font-size: 12px;
+      border: 1px solid #585b70;
+      border-radius: 6px;
+      background: #313244;
+      color: #cdd6f4;
+      outline: none;
+    }
+    .proxy-input:focus { border-color: #a6e3a1; }
+    .save-btn {
+      padding: 6px 10px;
+      font-size: 12px;
+      border: none;
+      border-radius: 6px;
+      background: #a6e3a1;
+      color: #1e1e2e;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .save-btn:active { opacity: 0.8; }
     .stats {
       font-size: 11px;
       color: #6c7086;
       margin-top: 6px;
+    }
+    .hint {
+      font-size: 10px;
+      color: #6c7086;
+      margin-top: 4px;
     }
   </style>
 </head>
@@ -78,6 +110,11 @@
     <span class="label">启用代理替换</span>
     <div class="toggle" id="toggle"></div>
   </div>
+  <div class="proxy-row">
+    <input class="proxy-input" id="proxy-input" type="text" placeholder="https://v6.gh-proxy.org" spellcheck="false" />
+    <button class="save-btn" id="save-btn">保存</button>
+  </div>
+  <div class="hint">代理地址需以 http:// 或 https:// 开头</div>
   <div class="stats">
     匹配：releases / archive / raw / codeload / release-assets / objects
   </div>
